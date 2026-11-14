@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 import Hero from './components/Hero.jsx'
 import Vibes from './components/Vibes.jsx'
+import Unbox from './components/Unbox.jsx'
+import HiHat from './components/HiHat.jsx'
 import Tuning from './components/Tuning.jsx'
+import Story from './components/Story.jsx'
 import Gallery from './components/Gallery.jsx'
 import Join from './components/Join.jsx'
 import Thanks from './components/Thanks.jsx'
@@ -43,8 +46,11 @@ export default function App() {
     <>
       <Hero />
       <main>
+        <Unbox />
         <Vibes />
+        <HiHat />
         <Tuning />
+        <Story />
         <Gallery />
         <Join />
       </main>

@@ -41,15 +41,18 @@ export default function Hero() {
         <span>{muted ? 'sound off. tap to hear the groove' : 'sound on'}</span>
       </button>
 
+      <span className="badge badge-hero">ai-enhanced preview</span>
+
       <div className="hero-copy">
         <h1>
           <img src="/lildude-white.svg" alt="lildude" className="logo" />
         </h1>
         <p className="tagline">portable, quiet kit for shedding</p>
+        <p className="campaign">crowdfunding campaign coming soon. get on the list to back it.</p>
         <p className="tagline2">from sheds to cafés to stadiums <span className="aside">(stadiums not included)</span></p>
         <div className="cta-row">
           <a className="btn btn-light" href="#join" onClick={() => track('cta_click', { cta: 'hero_waitlist' })}>join the waiting list</a>
-          <a className="btn btn-ghost-light" href="#gallery" onClick={() => track('cta_click', { cta: 'hero_gallery' })}>see it in action</a>
+          <a className="btn btn-ghost-light" href="#unbox" onClick={() => track('cta_click', { cta: 'hero_unbox' })}>see it unpack</a>
         </div>
       </div>
     </header>

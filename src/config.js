@@ -6,6 +6,10 @@ export const media = {
   heroPoster: `${base}/hero-poster.jpg`,
   tuningVideo: `${base}/tuning.mp4`,
   tuningPoster: `${base}/tuning-poster.jpg`,
+  prototypeVideo: `${base}/prototype.mp4`,
+  prototypePoster: `${base}/prototype-poster.jpg`,
+  previewVideo: `${base}/hero.mp4`,
+  previewPoster: `${base}/hero-poster.jpg`,
   setupVideo: `${base}/setup.mp4`,
   setupPoster: `${base}/setup-poster.jpg`,
   // Add real photos as /media/gallery-1.jpg ... ; art fallbacks show until they exist
@@ -24,3 +28,10 @@ export const links = {
 export const paypalAmountUrl = (amount) => (links.paypalMe ? `${links.paypalMe}/${amount}USD` : '')
 
 export const PRICE = 149 // placeholder pre-order price (USD)
+
+// Flip to true ONLY after a patent application (e.g. a provisional) has actually been filed.
+// Marking a product "patent pending" without a filed application is false marking.
+export const PATENT_PENDING = false
+
+// Crowdfunding campaign page (Kickstarter / Indiegogo / ...). Blank until the campaign is live.
+export const CAMPAIGN_URL = import.meta.env.VITE_CAMPAIGN_URL || ''
