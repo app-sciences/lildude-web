@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { submit } from '../firebase.js'
+import { submit } from '../waitlist.js'
 import { links, paypalAmountUrl, PRICE } from '../config.js'
 import { track, PREORDER_ITEM } from '../analytics.js'
 

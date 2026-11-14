@@ -1,7 +1,4 @@
-// Media lives on Firebase Storage / CDN. Set VITE_MEDIA_BASE to e.g.
-// https://firebasestorage.googleapis.com/v0/b/backup-2b746.firebasestorage.app/o
-// and upload files with ?alt=media URLs, or point at a CDN-fronted bucket path.
-// Blank = served from /media on Firebase Hosting (also CDN-backed).
+// Media is served from /media (public/media, on Vercel's CDN). Set VITE_MEDIA_BASE to use another CDN or bucket.
 const base = (import.meta.env.VITE_MEDIA_BASE || '/media').replace(/\/$/, '')
 
 export const media = {
