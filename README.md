@@ -1,6 +1,6 @@
 # Lil Dude — portable cajon drumset site
 
-Static React (Vite) site on Firebase Hosting. Firebase project: `backup-2b746`.
+Static React (Vite) site hosted on Vercel. Firebase project `backup-2b746` is used only for Firestore (waiting list).
 
 ## Run
 ```bash
@@ -9,16 +9,15 @@ cp .env.example .env   # fill in Firebase web config + PayPal link
 npm run dev
 ```
 
-## Media (Firebase CDN)
-Upload to Storage/Hosting under `media/`: `hero.mp4`, `hero-poster.jpg`, `setup.mp4`,
+## Media
+Files live in `public/media/` and are served from Vercel's CDN: `hero.mp4`, `hero-poster.jpg`, `setup.mp4`,
 `setup-poster.jpg`, `gallery-1.jpg` … `gallery-6.jpg`. Set `VITE_MEDIA_BASE` if serving from Storage.
 Missing media falls back to animated psychedelic art. Keep the hero video short (≤15 s loop, ≤4 MB, 720p).
 
-## Deploy
-```bash
-npm i -g firebase-tools && firebase login
-npm run deploy   # hosting + firestore + storage rules
-```
+## Deploy (Vercel)
+Import the repo in Vercel (Framework: Vite). `main` deploys to production, every PR gets a preview URL.
+Set the `VITE_*` variables from `.env.example` under Project Settings > Environment Variables, then redeploy
+(Vite bakes them in at build time). Firestore rules live in `firestore.rules`; publish them once in the Firebase console.
 
 ## Forms & payments
 - Waiting list sign-ups are written to Firestore (`waitlist`); rules allow create-only.
