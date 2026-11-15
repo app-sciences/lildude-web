@@ -41,6 +41,18 @@ function Scene({ mode }) {
 const REST = <><strong>at rest</strong> the two cymbals close as a regular hi-hat.</>
 const DOWN = <><strong>heel down</strong> press only the heel of the pedal and the lower cymbal drops away. the top one rings free as a ride or a crash.</>
 
+export function HiHatAnim() {
+  return (
+    <div className="hh-anim">
+      <Scene mode="anim" />
+      <div className="hh-caps" aria-hidden="true">
+        <p className="hh-cap hh-cap-a">{REST}</p>
+        <p className="hh-cap hh-cap-b">{DOWN}</p>
+      </div>
+    </div>
+  )
+}
+
 export default function HiHat() {
   return (
     <section className="section hihat" id="hihat">
@@ -51,13 +63,7 @@ export default function HiHat() {
       <h2>one hi-hat, three voices</h2>
       <p className="lead">drop the heel, free the top cymbal. pending patent pending.</p>
 
-      <div className="hh-anim">
-        <Scene mode="anim" />
-        <div className="hh-caps" aria-hidden="true">
-          <p className="hh-cap hh-cap-a">{REST}</p>
-          <p className="hh-cap hh-cap-b">{DOWN}</p>
-        </div>
-      </div>
+      <HiHatAnim />
 
       <div className="hihat-grid">
         <figure className="hihat-fig"><Scene mode="rest" /><figcaption>{REST}</figcaption></figure>

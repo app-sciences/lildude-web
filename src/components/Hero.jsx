@@ -38,6 +38,13 @@ export default function Hero() {
   }
 
   useEffect(() => {
+    const h = () => dock('tour')
+    addEventListener('ld-tour-open', h)
+    return () => removeEventListener('ld-tour-open', h)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
     if (stage !== 'playing') return
     try { sessionStorage.setItem(SEEN, String(Date.now())) } catch { /* ignore */ }
     // if the visitor scrolls away, tuck the video into its section
@@ -94,6 +101,8 @@ export default function Hero() {
         <p className="tagline">portable, hushed kit in a tuned bass cajon</p>
         <p className="campaign">crowdfunding campaign coming soon. get on the list to back it.</p>
         <p className="tagline2">from sheds to cafés to stadiums <span className="aside">(stadiums not included)</span></p>
+        <p className="plus" aria-hidden="true">+</p>
+        <p className="impact"><span className="sr-only">plus </span>clean water and addiction education for indigenous communities</p>
         <div className="cta-row">
           <a className="btn btn-light" href="#join" onClick={() => track('cta_click', { cta: 'hero_waitlist' })}>join the waiting list</a>
           <a className="btn btn-ghost-light" href="#unbox" onClick={() => track('cta_click', { cta: 'hero_unbox' })}>see it unpack</a>

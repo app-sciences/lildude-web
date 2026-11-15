@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { track } from '../analytics.js'
+import { SkipIcon } from './Tour.jsx'
 
 const ITEMS = [
   { id: 'unbox', label: 'unpack' },
@@ -10,7 +11,7 @@ const ITEMS = [
   { id: 'gallery', label: 'photos' },
 ]
 
-export default function Nav() {
+export default function Nav({ onTour }) {
   const [solid, setSolid] = useState(false) // white bar once we leave the hero
   const [active, setActive] = useState('')
   const [open, setOpen] = useState(false)
@@ -41,9 +42,14 @@ export default function Nav() {
 
   return (
     <nav className={`nav ${solid ? 'is-solid' : ''} ${open ? 'is-open' : ''}`} aria-label="sections">
-      <a className="nav-brand" href="#top" onClick={() => go('top')} aria-label="lildude, back to top">
-        <img src={solid ? '/lildude-black.svg' : '/lildude-white.svg'} alt="" />
-      </a>
+      <div className="nav-left">
+        <a className="nav-brand" href="#top" onClick={() => go('top')} aria-label="lildude, back to top">
+          <img src={solid ? '/lildude-black.svg' : '/lildude-white.svg'} alt="" />
+        </a>
+        <button className="nav-tour" onClick={() => { setOpen(false); onTour() }} aria-label="play the video tour">
+          <SkipIcon /><span>tour</span>
+        </button>
+      </div>
       <button className="nav-toggle" aria-expanded={open} aria-controls="nav-links" onClick={() => setOpen(!open)}>
         <span className="nav-toggle-bars" aria-hidden="true" />
         <span className="nav-toggle-text">{open ? 'close' : 'menu'}</span>

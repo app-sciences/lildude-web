@@ -222,3 +222,53 @@ section[id], header[id] { scroll-margin-top: 4.5rem; }
 .card-wide h3 { font-size: 1.8rem; margin-bottom: .25rem; }
 .card-wide .pill { font-family: 'Fredoka', system-ui, sans-serif; font-size: .8rem; font-weight: 700; padding: 0 .5rem; vertical-align: middle; border-width: 2px; }
 .card-wide p { font-size: 1.15rem; }
+
+/* HERO: impact line */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tagline2 { margin: .25rem 0 0; }
+.plus { font-family: var(--display); font-size: 2rem; line-height: 1; margin: .2rem 0; }
+.impact { margin: 0 0 1.5rem; font-weight: 600; font-size: clamp(1rem, 2.4vw, 1.2rem); max-width: 34rem; }
+
+/* CLICKABLE CARDS */
+a.card { display: block; color: inherit; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+a.card:hover, a.card:focus-visible { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+.card h3 .pill { font-family: 'Fredoka', system-ui, sans-serif; font-size: .75rem; font-weight: 700; padding: 0 .5rem; vertical-align: middle; border-width: 2px; }
+.card-more { display: inline-flex; align-items: center; gap: .35rem; margin-top: .9rem; font-weight: 700; text-transform: lowercase; }
+a.card-wide { display: flex; }
+.card-wide .card-more { margin: 0 0 0 auto; }
+
+/* NAV: tour button */
+.nav-left { display: flex; align-items: center; gap: .75rem; }
+.nav-tour { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem .3rem .6rem; border-radius: 999px; border: 3px solid currentColor; background: transparent; color: inherit; font: inherit; font-weight: 700; cursor: pointer; text-transform: lowercase; }
+.nav-tour:hover { background: #fff; color: #000; border-color: #fff; }
+.nav.is-solid .nav-tour:hover { background: #000; color: #fff; border-color: #000; }
+
+/* TOUR DRAWER */
+.tour-scrim { position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.45); opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+.tour-scrim.is-open { opacity: 1; visibility: visible; }
+.tour { position: fixed; z-index: 41; top: 0; right: 0; bottom: 0; width: min(100vw, 30rem); background: #fff; color: #000; border-left: 4px solid #000; padding: 1.25rem 1.25rem 1.5rem; display: flex; flex-direction: column; gap: .6rem; overflow-y: auto; transform: translateX(105%); visibility: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), visibility .45s; }
+.tour.is-open { transform: none; visibility: visible; }
+.tour-head { display: flex; align-items: center; justify-content: space-between; font-weight: 700; }
+.tour-close { border: 3px solid #000; background: #fff; color: #000; border-radius: 999px; padding: .25rem .9rem; font: inherit; font-weight: 700; cursor: pointer; text-transform: lowercase; }
+.tour-title { font-size: 2.2rem; margin: .5rem 0 0; }
+.tour-note { margin: 0; }
+.tour-stage { flex: 1; display: grid; place-items: center; min-height: 0; }
+.tour-stage video { width: 100%; max-height: 56svh; object-fit: contain; background: #f9f9f9; border: 3px solid #000; border-radius: 1.25rem; }
+.tour .hh-anim { display: block; margin: 0 auto; max-width: 16rem; }
+.tour-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .5rem; }
+.tour-btn { display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 3rem; border-radius: 999px; border: 3px solid #000; background: #000; color: #fff; cursor: pointer; }
+.tour-btn:disabled { opacity: .25; cursor: default; }
+.tour-dots { display: flex; gap: .5rem; }
+.tour-dots i { width: .8rem; height: .8rem; border-radius: 50%; border: 3px solid #000; }
+.tour-dots i.on { background: #000; }
+@media (max-width: 900px) { .nav-tour span { display: none; } .nav-tour { padding: .3rem .55rem; } }
+
+/* keep the hero CTAs above the fold on laptop screens */
+.logo { width: min(86vw, 27rem); }
+.tagline { font-size: clamp(1.5rem, 4.2vw, 2.4rem); margin-top: .9rem; }
+.tagline2 { font-size: clamp(1rem, 2.6vw, 1.3rem); }
+.campaign { margin-top: .6rem; font-size: .9rem; }
+.hero { padding-top: 5.5rem; padding-bottom: 3rem; }
+.hero-copy { max-width: 56rem; }
+.impact { margin-bottom: 1.1rem; }
+.mute { top: 4.5rem; }
