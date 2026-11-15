@@ -214,3 +214,11 @@ section[id], header[id] { scroll-margin-top: 4.5rem; }
 .story-block { max-width: 44rem; margin: 2.5rem auto 0; text-align: center; }
 .story-block h3 { font-size: 1.8rem; }
 .story-block .video-frame { margin: 1rem auto 0; }
+
+/* wide feature card under the vibes grid */
+.card-wide { margin-top: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
+.card-wide .card-icon { flex: none; margin: 0; }
+.card-wide > div { flex: 1 1 18rem; min-width: 0; }
+.card-wide h3 { font-size: 1.8rem; margin-bottom: .25rem; }
+.card-wide .pill { font-family: 'Fredoka', system-ui, sans-serif; font-size: .8rem; font-weight: 700; padding: 0 .5rem; vertical-align: middle; border-width: 2px; }
+.card-wide p { font-size: 1.15rem; }
