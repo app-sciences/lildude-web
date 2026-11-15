@@ -5,8 +5,15 @@ import IntroOverlay from './IntroOverlay.jsx'
 
 const SEEN = 'ld-intro-seen'
 function shouldPlayIntro() {
-  try { if (sessionStorage.getItem(SEEN)) return false } catch { /* storage blocked: still play once */ }
   if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false
+  // Any refresh (soft or hard; the browser reports both as "reload") replays it.
+  const nav = performance.getEntriesByType?.('navigation')?.[0]
+  if (nav?.type === 'reload') return true
+  // Otherwise once per visit: skip if it already played in this tab in the last 30 minutes.
+  try {
+    const t = Number(sessionStorage.getItem(SEEN))
+    if (t && Date.now() - t < 30 * 60 * 1000) return false
+  } catch { /* storage blocked: still play */ }
   return true
 }
 
@@ -32,7 +39,7 @@ export default function Hero() {
 
   useEffect(() => {
     if (stage !== 'playing') return
-    try { sessionStorage.setItem(SEEN, '1') } catch { /* ignore */ }
+    try { sessionStorage.setItem(SEEN, String(Date.now())) } catch { /* ignore */ }
     // if the visitor scrolls away, tuck the video into its section
     const io = new IntersectionObserver(([e]) => e.intersectionRatio < 0.25 && dock('left'), { threshold: [0.25] })
     io.observe(headerRef.current)
