@@ -272,3 +272,8 @@ a.card-wide { display: flex; }
 .hero-copy { max-width: 56rem; }
 .impact { margin-bottom: 1.1rem; }
 .mute { top: 4.5rem; }
+
+/* highlight for the giving line: display font + a warm accent (dark amber on light cards for contrast) */
+.hl { font-family: var(--display); font-weight: 400; font-size: 1.18em; color: #ffcf4d; letter-spacing: .01em; }
+.card .hl { color: #b45309; }
+.impact-heart { display: inline-block; vertical-align: -.2em; margin-right: .3em; color: #ffcf4d; }
