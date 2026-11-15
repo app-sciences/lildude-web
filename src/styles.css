@@ -165,7 +165,7 @@ input::placeholder { color: #555; }
 .hh-svg { width: 100%; display: block; }
 .hh-svg g, .hh-svg ellipse { transform-box: fill-box; transform-origin: center; }
 .hh-low { animation: hh-drop 6s ease-in-out infinite; }
-.hh-heel { animation: hh-press 6s ease-in-out infinite; }
+.hh-svg .hh-board { transform-box: view-box; transform-origin: 70px 236px; animation: hh-press 6s ease-in-out infinite; }
 .hh-top { animation: hh-ring 6s ease-in-out infinite; }
 .hh-ghost, .hh-arrow-drop, .hh-arrow-heel { opacity: 0; animation: hh-show 6s ease-in-out infinite; }
 .hh-caps { position: relative; min-height: 6.5rem; margin-top: 1rem; }
@@ -173,7 +173,7 @@ input::placeholder { color: #555; }
 .hh-cap-a { animation: hh-cap-a 6s ease-in-out infinite; }
 .hh-cap-b { opacity: 0; animation: hh-cap-b 6s ease-in-out infinite; }
 @keyframes hh-drop { 0%, 22% { transform: translateY(0); } 30%, 70% { transform: translateY(70px); } 78%, 100% { transform: translateY(0); } }
-@keyframes hh-press { 0%, 22% { transform: translateY(0); } 28%, 70% { transform: translateY(8px); } 78%, 100% { transform: translateY(0); } }
+@keyframes hh-press { 0%, 22% { transform: rotate(0); } 28%, 70% { transform: rotate(7deg); } 78%, 100% { transform: rotate(0); } }
 @keyframes hh-ring { 0%, 29% { transform: rotate(0); } 32% { transform: rotate(-3deg); } 36% { transform: rotate(2.5deg); } 40% { transform: rotate(-2deg); } 45% { transform: rotate(1.5deg); } 52% { transform: rotate(-1deg); } 60%, 100% { transform: rotate(0); } }
 @keyframes hh-show { 0%, 22% { opacity: 0; } 30%, 68% { opacity: 1; } 76%, 100% { opacity: 0; } }
 @keyframes hh-cap-a { 0%, 20% { opacity: 1; } 26%, 74% { opacity: 0; } 80%, 100% { opacity: 1; } }
