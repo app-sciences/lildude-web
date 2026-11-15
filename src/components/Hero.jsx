@@ -91,7 +91,7 @@ export default function Hero() {
         <h1>
           <img src="/lildude-white.svg" alt="lildude" className="logo" />
         </h1>
-        <p className="tagline">portable, quiet kit in a bass cajon</p>
+        <p className="tagline">portable, hushed kit in a tuned bass cajon</p>
         <p className="campaign">crowdfunding campaign coming soon. get on the list to back it.</p>
         <p className="tagline2">from sheds to cafés to stadiums <span className="aside">(stadiums not included)</span></p>
         <div className="cta-row">
