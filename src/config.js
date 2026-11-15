@@ -8,8 +8,6 @@ export const media = {
   tuningPoster: `${base}/tuning-poster.jpg`,
   prototypeVideo: `${base}/prototype.mp4`,
   prototypePoster: `${base}/prototype-poster.jpg`,
-  previewVideo: `${base}/hero.mp4`,
-  previewPoster: `${base}/hero-poster.jpg`,
   setupStart: `${base}/setup-start.jpg`,
   setupVideo: `${base}/setup.mp4`,
   setupPoster: `${base}/setup-poster.jpg`,

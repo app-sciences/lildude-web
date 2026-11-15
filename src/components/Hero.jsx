@@ -57,7 +57,7 @@ export default function Hero() {
   }
 
   return (
-    <header className="hero" ref={headerRef}>
+    <header className="hero" id="top" ref={headerRef}>
       <div className="hero-bg halftone" aria-hidden="true" />
       <video
         ref={ref}
