@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { track } from '../analytics.js'
 
 // A framed video with a fallback label (shown until the file exists) and an optional disclosure badge.
-export default function VideoFrame({ src, poster, fallback, badge, event }) {
+export default function VideoFrame({ src, poster, fallback, badge, event, portrait }) {
   const [failed, setFailed] = useState(false)
   return (
-    <div className="video-frame">
+    <div className={`video-frame ${portrait ? 'video-portrait' : ''}`}>
       {failed && <div className="video-fallback">{fallback}</div>}
       {!failed && (
         <video

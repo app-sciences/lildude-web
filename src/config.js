@@ -10,6 +10,7 @@ export const media = {
   prototypePoster: `${base}/prototype-poster.jpg`,
   previewVideo: `${base}/hero.mp4`,
   previewPoster: `${base}/hero-poster.jpg`,
+  setupStart: `${base}/setup-start.jpg`,
   setupVideo: `${base}/setup.mp4`,
   setupPoster: `${base}/setup-poster.jpg`,
   // Add real photos as /media/gallery-1.jpg ... ; art fallbacks show until they exist

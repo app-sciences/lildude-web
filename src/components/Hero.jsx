@@ -1,10 +1,44 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { media } from '../config.js'
 import { track } from '../analytics.js'
+import IntroOverlay from './IntroOverlay.jsx'
+
+const SEEN = 'ld-intro-seen'
+function shouldPlayIntro() {
+  try { if (sessionStorage.getItem(SEEN)) return false } catch { /* storage blocked: still play once */ }
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false
+  return true
+}
 
 export default function Hero() {
   const ref = useRef(null)
   const [muted, setMuted] = useState(true)
+  const headerRef = useRef(null)
+  const [stage, setStage] = useState(() => (shouldPlayIntro() ? 'playing' : 'docked'))
+  const [hint, setHint] = useState(false)
+  const done = useRef(stage !== 'playing')
+
+  const dock = (reason) => {
+    if (done.current) return
+    done.current = true
+    if (reason !== 'error') track(reason === 'skip' ? 'intro_skip' : 'intro_complete', { reason })
+    setStage('docking')
+    setTimeout(() => {
+      setStage('docked')
+      setHint(true)
+      setTimeout(() => setHint(false), 9000)
+    }, 700)
+  }
+
+  useEffect(() => {
+    if (stage !== 'playing') return
+    try { sessionStorage.setItem(SEEN, '1') } catch { /* ignore */ }
+    // if the visitor scrolls away, tuck the video into its section
+    const io = new IntersectionObserver(([e]) => e.intersectionRatio < 0.25 && dock('left'), { threshold: [0.25] })
+    io.observe(headerRef.current)
+    return () => io.disconnect()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const toggle = () => {
     const v = ref.current
@@ -16,7 +50,7 @@ export default function Hero() {
   }
 
   return (
-    <header className="hero">
+    <header className="hero" ref={headerRef}>
       <div className="hero-bg halftone" aria-hidden="true" />
       <video
         ref={ref}
@@ -43,7 +77,10 @@ export default function Hero() {
 
       <span className="badge badge-hero">ai-enhanced preview</span>
 
-      <div className="hero-copy">
+      {(stage === 'playing' || stage === 'docking') && <IntroOverlay docking={stage === 'docking'} onDock={dock} />}
+      {hint && <a className="intro-hint" href="#unbox">replay the unpack below</a>}
+
+      <div className={`hero-copy ${stage === 'playing' ? 'is-hidden' : ''}`}>
         <h1>
           <img src="/lildude-white.svg" alt="lildude" className="logo" />
         </h1>

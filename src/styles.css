@@ -131,5 +131,31 @@ input::placeholder { color: #555; }
 .story-grid article h3 { font-size: 1.8rem; }
 .story-grid .video-frame { margin: 1rem 0 0; }
 .story-note { max-width: 40rem; margin: 2.5rem auto 0; text-align: center; font-size: 1.2rem; font-weight: 600; }
-.unbox .video-frame { max-width: 60rem; }
+
 .hero-copy .btn, .campaign { text-shadow: none; }
+
+/* INTRO: assembly video over the hero, then docks into #unbox */
+.hero-copy { transition: opacity .6s ease; }
+.hero-copy.is-hidden { opacity: 0; pointer-events: none; }
+.intro { position: absolute; inset: 0; z-index: 4; display: grid; place-items: center; background: rgba(0,0,0,.15); animation: intro-in .5s ease both; transition: background .7s ease; }
+.intro.is-docking { background: transparent; pointer-events: none; }
+.intro-card { position: relative; width: min(92vw, calc(78svh * .808)); aspect-ratio: 720 / 892; background: #f9f9f9; border: 4px solid #000; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 0 0 4px #fff, 0 24px 70px rgba(0,0,0,.55); transition: transform .7s cubic-bezier(.55,0,.8,.4), opacity .7s ease; }
+.intro.is-docking .intro-card { transform: translateY(70vh) scale(.45); opacity: 0; }
+.intro-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.intro-skip, .intro-sound { position: absolute; z-index: 2; border: 3px solid #000; background: #fff; color: #000; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer; text-transform: lowercase; }
+.intro-skip { top: .75rem; right: .75rem; padding: .35rem 1rem; }
+.intro-sound { left: .75rem; bottom: .75rem; display: flex; align-items: center; gap: .4rem; padding: .35rem .9rem; }
+.intro-hint { position: absolute; z-index: 3; left: 50%; bottom: 1.25rem; transform: translateX(-50%); background: #fff; color: #000; border: 3px solid #000; border-radius: 999px; padding: .4rem 1.1rem; font-weight: 700; text-decoration: none; text-transform: lowercase; animation: intro-in .5s ease both; white-space: nowrap; }
+@keyframes intro-in { from { opacity: 0; } to { opacity: 1; } }
+.badge-hero { bottom: 1rem; }
+
+/* UNBOX (portrait video beside its copy) */
+.unbox-grid { display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center; justify-content: center; }
+.unbox-copy { flex: 1 1 18rem; max-width: 28rem; }
+.unbox h2 { text-align: left; }
+.unbox .lead { text-align: left; font-size: 1.3rem; }
+.video-portrait { flex: 0 1 26rem; width: 100%; max-width: 26rem; margin: 0; aspect-ratio: 720 / 892; background: #f9f9f9; color: #000; box-shadow: 8px 8px 0 #000; }
+.video-portrait video { object-fit: contain; }
+.video-portrait .video-fallback { color: #000; }
+.mute { z-index: 6; }
+.badge-hero { z-index: 6; }
