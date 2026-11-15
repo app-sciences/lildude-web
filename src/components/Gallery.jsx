@@ -20,21 +20,8 @@ export default function Gallery() {
   const [open, setOpen] = useState(null)
   return (
     <section className="section gallery" id="gallery">
-      <h2>see it come together</h2>
-      <p className="lead">from backpack to beat in under a minute.</p>
-
-      <div className="video-frame">
-        <video
-          src={media.setupVideo}
-          poster={media.setupPoster}
-          controls
-          onPlay={() => track('setup_video_play')}
-          onEnded={() => track('setup_video_complete')}
-          playsInline
-          preload="none"
-        />
-        <div className="video-fallback">setup video coming soon</div>
-      </div>
+      <h2>see it up close</h2>
+      <p className="lead">a closer look at the kit.</p>
 
       <div className="tiles">
         {media.images.map((src, n) => <Tile key={src} src={src} n={n} onOpen={setOpen} />)}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { submit } from '../waitlist.js'
-import { links, paypalAmountUrl, PRICE } from '../config.js'
+import { links, paypalAmountUrl, PRICE, CAMPAIGN_URL } from '../config.js'
 import { track, PREORDER_ITEM } from '../analytics.js'
 
 function useForm(collectionName, source) {
@@ -94,7 +94,12 @@ export default function Join() {
   const Active = tabs.find((t) => t.id === tab).Comp
   return (
     <section className="section join" id="join">
-      <h2>join the circle</h2>
+      <h2>back the campaign</h2>
+      <p className="lead">our campaign funds the first production run. join the list and we’ll tell you the minute it opens.</p>
+      {CAMPAIGN_URL && (
+        <p><a className="btn btn-primary" href={CAMPAIGN_URL} target="_blank" rel="noopener noreferrer"
+          onClick={() => track('campaign_click')}>back the campaign</a></p>
+      )}
       <div className="tabs" role="tablist">
         {tabs.map((t) => (
           <button key={t.id} role="tab" aria-selected={tab === t.id}
