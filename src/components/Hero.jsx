@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { media } from '../config.js'
 import { track } from '../analytics.js'
-import { HiHatAnim } from './HiHat.jsx'
 import { SkipIcon } from './SkipIcon.jsx'
 
 // EXPERIMENT: the hero is a step-through wizard. Step 0 is the regular front header; "next" slides in
@@ -12,7 +11,8 @@ const STEPS = [
     src: media.setupVideo, poster: media.setupStart, ratio: '720 / 892' },
   { id: 'tuning', label: 'tuning', title: 'tuned to 55 hz', note: 'a port tube turns the cajon into a bass drum resonator.',
     src: media.tuningVideo, poster: media.tuningPoster, ratio: '798 / 720' },
-  { id: 'hihat', label: 'hi-hat', title: 'the magic hi-hat', note: 'press only the heel and the lower hat drops. the top one rings free as a ride or a crash.', anim: true },
+  { id: 'hihat', label: 'hi-hat', title: 'the magic hi-hat', note: 'press only the heel and the lower hat drops. the top one rings free as a ride or a crash.',
+    src: media.hihatVideo, poster: media.hihatPoster, ratio: '600 / 842' },
 ]
 const NEXT_LABEL = ['unpack', 'tuning', 'hi-hat', 'back to start']
 
@@ -119,10 +119,9 @@ export default function Hero() {
                   </div>
                   <div className="wiz-media">
                     {step === i && s.src && (
-                      <video key={s.id} src={s.src} poster={s.poster} autoPlay loop muted playsInline controls
+                      <video key={s.id} className={`wiz-video-${s.id}`} src={s.src} poster={s.poster} autoPlay loop muted playsInline controls
                         style={{ aspectRatio: s.ratio }} />
                     )}
-                    {step === i && s.anim && <HiHatAnim />}
                   </div>
                 </div>
               )}
