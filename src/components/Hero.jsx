@@ -86,7 +86,9 @@ export default function Hero() {
           <path d="M4 9v6h4l5 4V5L8 9H4z" />
           {muted ? <path d="M17 9l5 6M22 9l-5 6" /> : <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" />}
         </svg>
-        <span>{muted ? 'sound off. tap to hear the groove' : 'sound on'}</span>
+        {muted
+          ? <><span className="mute-long">sound off. tap to hear the groove</span><span className="mute-short">tap for sound</span></>
+          : <span>sound on</span>}
       </button>
 
       <span className="badge badge-hero">ai-enhanced preview</span>
