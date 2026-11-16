@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Hero from './components/Hero.jsx'
 import Vibes from './components/Vibes.jsx'
 import Unbox from './components/Unbox.jsx'
@@ -6,7 +6,6 @@ import HiHat from './components/HiHat.jsx'
 import Tuning from './components/Tuning.jsx'
 import Story from './components/Story.jsx'
 import Nav from './components/Nav.jsx'
-import Tour from './components/Tour.jsx'
 import Gallery from './components/Gallery.jsx'
 import Join from './components/Join.jsx'
 import Thanks from './components/Thanks.jsx'
@@ -43,14 +42,10 @@ function useEngagement() {
 
 export default function App() {
   useEngagement()
-  const [tour, setTour] = useState(false)
-  const openTour = () => { window.dispatchEvent(new Event('ld-tour-open')); setTour(true) }
-  const closeTour = () => { setTour(false); document.querySelector('.nav-tour')?.focus() }
   if (window.location.pathname.replace(/\/$/, '') === '/thanks') return <><Thanks /><Consent /></>
   return (
     <>
-      <Nav onTour={openTour} />
-      <Tour open={tour} onClose={closeTour} />
+      <Nav />
       <Hero />
       <main>
         <Unbox />
