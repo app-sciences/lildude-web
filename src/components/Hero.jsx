@@ -7,11 +7,11 @@ import { SkipIcon } from './SkipIcon.jsx'
 // unpack -> tuning -> hi-hat and then returns to the front. Everything happens inside the first screen.
 const STEPS = [
   { id: 'front', label: 'start' },
-  { id: 'unpack', label: 'unpack', title: 'unpack it', note: 'one box, every piece. watch it come together.',
+  { id: 'unpack', label: 'unpack', title: 'unpack and assemble', note: 'all in a cajon. watch it come together.',
     src: media.setupVideo, poster: media.setupStart, ratio: '720 / 892' },
-  { id: 'tuning', label: 'tuning', title: 'tuned to 55 hz', note: 'a port tube turns the cajon into a bass drum resonator.',
+  { id: 'tuning', label: 'tuning', title: 'tuned to 55 hz', note: 'acoustic resonator turns the cajon into a punchy bass drum that cuts through.',
     src: media.tuningVideo, poster: media.tuningPoster, ratio: '798 / 720' },
-  { id: 'hihat', label: 'hi-hat', title: 'the magic hi-hat', note: 'press only the heel and the lower hat drops. the top one rings free as a ride or a crash.',
+  { id: 'hihat', label: 'hi-hat', title: 'the magic hi-hat', note: 'click the heel and the lower hat drops -- use top hat as crash or ride.',
     src: media.hihatVideo, poster: media.hihatPoster, ratio: '600 / 842' },
 ]
 const NEXT_LABEL = ['unpack', 'tuning', 'hi-hat', 'back to start']
@@ -82,7 +82,7 @@ export default function Hero() {
           {muted ? <path d="M17 9l5 6M22 9l-5 6" /> : <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" />}
         </svg>
         {muted
-          ? <><span className="mute-long">sound off. tap to hear the groove</span><span className="mute-short">tap for sound</span></>
+          ? <><span className="mute-long">sound off. tap to hear.</span><span className="mute-short">tap for sound</span></>
           : <span>sound on</span>}
       </button>
 
@@ -97,7 +97,7 @@ export default function Hero() {
                 <div className="hero-copy">
                   <h1><img src="/lildude-white.svg" alt="lildude" className="logo" /></h1>
                   <p className="tagline">portable, hushed kit in a tuned bass cajon</p>
-                  <p className="campaign">crowdfunding campaign coming soon. get on the list to back it.</p>
+                  <p className="campaign">crowdfunding campaign close to launch. get on the list to get coupons and goodies.</p>
                   <p className="tagline2">from sheds to cafés to stadiums <span className="aside">(stadiums not included)</span></p>
                   <p className="plus" aria-hidden="true">+</p>
                   <p className="impact">
@@ -107,7 +107,7 @@ export default function Hero() {
                   </p>
                   <div className="cta-row">
                     <a className="btn btn-light" href="#join" onClick={() => track('cta_click', { cta: 'hero_waitlist' })}>join the waiting list</a>
-                    <button className="btn btn-ghost-light" onClick={() => go(1, 'cta')}>see it unpack</button>
+                    <button className="btn btn-ghost-light" onClick={() => go(1, 'cta')}>assemble</button>
                   </div>
                 </div>
               ) : (

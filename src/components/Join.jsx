@@ -35,7 +35,7 @@ function Waitlist() {
   }
   return (
     <form onSubmit={onSubmit} className="form">
-      <p>Be first in line when the next batch of lildudes is ready.</p>
+      <p>be first in line when the next batch of lildudes is born.</p>
       <input name="name" placeholder="Your name" required maxLength={80} />
       <input name="email" type="email" placeholder="Email" required maxLength={200} />
       <button className="btn btn-primary" disabled={state.status === 'loading'}>
@@ -50,7 +50,7 @@ function Preorder() {
   const url = links.checkout
   return (
     <div className="form">
-      <p>Reserve yours from the first batch — <strong>${PRICE}</strong> each (placeholder price). Pick your colour and quantity at checkout.</p>
+      <p>reserve yours from the first batch -- coming soon</p>
       <a className={`btn btn-primary ${url ? '' : 'disabled'}`} href={url || undefined}
         onClick={() => track('begin_checkout', { currency: 'USD', value: PRICE, items: [PREORDER_ITEM(PRICE)] })}
         target="_blank" rel="noopener noreferrer">
@@ -65,7 +65,7 @@ function Donate() {
   const amounts = [10, 25, 50, 100]
   return (
     <div className="form">
-      <p>Chip in so a kid can have a lildude of their own. Every drum counts.</p>
+      <p>chip in so a kid or a school can have a lildude of their own. every drum counts.</p>
       <div className="amounts">
         {amounts.map((a) => (
           <a key={a} className={`btn btn-ghost ${links.donate ? '' : 'disabled'}`}
@@ -94,7 +94,7 @@ export default function Join() {
   const Active = tabs.find((t) => t.id === tab).Comp
   return (
     <section className="section join" id="join">
-      <h2>back the campaign</h2>
+      <h2>back the campaign, get goodies</h2>
       <p className="lead">our campaign funds the first production run. join the list and we’ll tell you the minute it opens.</p>
       {CAMPAIGN_URL && (
         <p><a className="btn btn-primary" href={CAMPAIGN_URL} target="_blank" rel="noopener noreferrer"

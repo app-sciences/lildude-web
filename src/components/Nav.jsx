@@ -4,8 +4,9 @@ import { track } from '../analytics.js'
 const ITEMS = [
   { id: 'unbox', label: 'unpack' },
   { id: 'vibes', label: 'why lildude' },
-  { id: 'hihat', label: 'heel-drop hi-hat', isNew: true },
-  { id: 'tuning', label: '55 hz' },
+  { id: 'tuning', label: 'bass cajon' },
+  { id: 'hihat', label: 'magic hi-hat', isNew: true },
+  { id: 'tuning', label: '55 hz', dup: true },
   { id: 'story', label: 'story' },
   { id: 'gallery', label: 'photos' },
 ]
@@ -52,8 +53,8 @@ export default function Nav() {
       </button>
       <ul className="nav-links" id="nav-links">
         {ITEMS.map((i) => (
-          <li key={i.id}>
-            <a href={`#${i.id}`} onClick={() => go(i.id)} aria-current={active === i.id ? 'true' : undefined}
+          <li key={i.label}>
+            <a href={`#${i.id}`} onClick={() => go(i.id)} aria-current={active === i.id && !i.dup ? 'true' : undefined}
               className={i.isNew ? 'is-feature' : undefined}>
               {i.label}
               {i.isNew && <span className="nav-new">new</span>}

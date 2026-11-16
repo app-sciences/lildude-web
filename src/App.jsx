@@ -58,7 +58,7 @@ export default function App() {
       </main>
       <footer className="footer">
         <img src="/lildude-black.svg" alt="lildude" className="footer-logo" />
-        <p>made with love, rhythm &amp; recycled wood · © {new Date().getFullYear()} lildude</p>
+        <p>made with love, pocket &amp; recycled wood · © {new Date().getFullYear()} lildude</p>
       </footer>
       <Consent />
     </>
