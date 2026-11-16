@@ -1,5 +1,6 @@
-import { media } from '../config.js'
+import { media, PROTOTYPE_YOUTUBE_ID } from '../config.js'
 import VideoFrame from './VideoFrame.jsx'
+import YouTubeFrame from './YouTubeFrame.jsx'
 
 export default function Story() {
   return (
@@ -8,8 +9,9 @@ export default function Story() {
       <article className="story-block">
         <h3>where it started</h3>
         <p>the first prototype, raw, rough and real.</p>
-        <VideoFrame src={media.prototypeVideo} poster={media.prototypePoster} event="prototype_video"
-          fallback="prototype video coming soon" />
+        {PROTOTYPE_YOUTUBE_ID
+          ? <YouTubeFrame id={PROTOTYPE_YOUTUBE_ID} title="lildude: the first prototype" label="watch the first prototype" event="prototype_video" />
+          : <VideoFrame src={media.prototypeVideo} poster={media.prototypePoster} event="prototype_video" fallback="prototype video coming soon" />}
       </article>
       <article className="story-block">
         <h3>where we are now</h3>

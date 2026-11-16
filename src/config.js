@@ -36,3 +36,6 @@ export const PATENT_PENDING = false
 
 // Crowdfunding campaign page (Kickstarter / Indiegogo / ...). Blank until the campaign is live.
 export const CAMPAIGN_URL = import.meta.env.VITE_CAMPAIGN_URL || ''
+
+// The first prototype, a YouTube Short (video id from the link). Blank = falls back to /media/prototype.mp4.
+export const PROTOTYPE_YOUTUBE_ID = 'BhdRFwoCgig'
