@@ -8,6 +8,8 @@ export const media = {
   tuningPoster: `${base}/tuning-poster.jpg`,
   prototypeVideo: `${base}/prototype.mp4`,
   prototypePoster: `${base}/prototype-poster.jpg`,
+  hihatVideo: `${base}/hihat.mp4`,
+  hihatPoster: `${base}/hihat-poster.jpg`,
   setupStart: `${base}/setup-start.jpg`,
   setupVideo: `${base}/setup.mp4`,
   setupPoster: `${base}/setup-poster.jpg`,
@@ -34,3 +36,6 @@ export const PATENT_PENDING = false
 
 // Crowdfunding campaign page (Kickstarter / Indiegogo / ...). Blank until the campaign is live.
 export const CAMPAIGN_URL = import.meta.env.VITE_CAMPAIGN_URL || ''
+
+// The first prototype, a YouTube Short (video id from the link). Blank = falls back to /media/prototype.mp4.
+export const PROTOTYPE_YOUTUBE_ID = 'BhdRFwoCgig'

@@ -6,8 +6,8 @@ export default function Unbox() {
     <section className="section unbox" id="unbox">
       <div className="unbox-grid">
         <div className="unbox-copy">
-          <h2>everything comes out of the box</h2>
-          <p className="lead">one box, every piece. watch it unpack and come together, as often as you like.</p>
+          <h2>all in a cajon</h2>
+          <p className="lead">watch it unpack and come together, as often as you like.</p>
         </div>
         <VideoFrame src={media.setupVideo} poster={media.setupPoster} event="setup_video" portrait
           fallback="unboxing video coming soon" badge="ai-enhanced preview" />

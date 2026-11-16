@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import { track } from '../analytics.js'
-import { SkipIcon } from './Tour.jsx'
 
 const ITEMS = [
   { id: 'unbox', label: 'unpack' },
   { id: 'vibes', label: 'why lildude' },
-  { id: 'hihat', label: 'heel-drop hi-hat', isNew: true },
-  { id: 'tuning', label: '55 hz' },
+  { id: 'tuning', label: 'bass cajon' },
+  { id: 'hihat', label: 'magic hi-hat', isNew: true },
+  { id: 'tuning', label: '55 hz', dup: true },
   { id: 'story', label: 'story' },
   { id: 'gallery', label: 'photos' },
 ]
 
-export default function Nav({ onTour }) {
+export default function Nav() {
   const [solid, setSolid] = useState(false) // white bar once we leave the hero
   const [active, setActive] = useState('')
   const [open, setOpen] = useState(false)
@@ -46,9 +46,6 @@ export default function Nav({ onTour }) {
         <a className="nav-brand" href="#top" onClick={() => go('top')} aria-label="lildude, back to top">
           <img src={solid ? '/lildude-black.svg' : '/lildude-white.svg'} alt="" />
         </a>
-        <button className="nav-tour" onClick={() => { setOpen(false); onTour() }} aria-label="play the video tour">
-          <SkipIcon /><span>tour</span>
-        </button>
       </div>
       <button className="nav-toggle" aria-expanded={open} aria-controls="nav-links" onClick={() => setOpen(!open)}>
         <span className="nav-toggle-bars" aria-hidden="true" />
@@ -56,8 +53,8 @@ export default function Nav({ onTour }) {
       </button>
       <ul className="nav-links" id="nav-links">
         {ITEMS.map((i) => (
-          <li key={i.id}>
-            <a href={`#${i.id}`} onClick={() => go(i.id)} aria-current={active === i.id ? 'true' : undefined}
+          <li key={i.label}>
+            <a href={`#${i.id}`} onClick={() => go(i.id)} aria-current={active === i.id && !i.dup ? 'true' : undefined}
               className={i.isNew ? 'is-feature' : undefined}>
               {i.label}
               {i.isNew && <span className="nav-new">new</span>}

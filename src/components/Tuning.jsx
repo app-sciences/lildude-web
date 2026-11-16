@@ -8,12 +8,10 @@ export default function Tuning() {
         <div className="tuning-copy">
           <h2>tuned to 55 hz</h2>
           <p className="lead-left">
-            that’s the low thump of a bass drum. a tuned port tube in the box turns the whole cajon into a
-            resonator, so the air inside rings right where a kick drum lives.
+            that’s the low thump of a bass drum. acoustic tube turns cajon into a resonator - the air inside rings right where a kick drum lives.
           </p>
           <p>
-            same trick as a bass-reflex speaker: the length and width of the tube set the note. hit it, and the
-            box answers back with real low end, in a kit that fits in your backpack.
+            same trick as a ported speaker: hit it, and the box answers back with punchy real low end that cuts through.
           </p>
         </div>
         <div className="tuning-video">
