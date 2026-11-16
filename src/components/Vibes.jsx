@@ -41,7 +41,7 @@ export default function Vibes() {
         </svg>
         <div>
           <h3>drums for every kid</h3>
-          <p>a fraction of the price of a kit. efficiently, responsibly built in guatemala. a portion of profits goes to clean water and addiction education for indigenous communities.</p>
+          <p>a fraction of the price of a kit. efficiently, responsibly built in guatemala. a portion of profits goes to clean water and addiction education for <span className="hl">indigenous</span> communities.</p>
         </div>
         <More />
       </a>
