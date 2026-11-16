@@ -56,7 +56,13 @@ function Preorder() {
         target="_blank" rel="noopener noreferrer">
         {url ? 'Pre-order with PayPal' : 'Pre-orders opening soon'}
       </a>
-      <p className="hint">Not ready yet? Hop on the waiting list instead.</p>
+      <p className="hint">
+        not ready yet?{' '}
+        <button type="button" className="link-btn" onClick={() => {
+          track('preorder_to_waitlist')
+          window.dispatchEvent(new CustomEvent('ld-join-tab', { detail: 'waitlist' }))
+        }}>hop on the waiting list</button>{' '}instead.
+      </p>
     </div>
   )
 }

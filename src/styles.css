@@ -301,3 +301,7 @@ a.card-wide { display: flex; }
 .campaign-btn { border: 3px solid #000; box-shadow: 0 0 0 3px #ffcf4d, 0 10px 26px rgba(0,0,0,.5); animation-name: campaign-ring; }
 @keyframes campaign-ring { 50% { box-shadow: 0 0 0 3px #ffcf4d, 0 0 0 13px rgba(255,207,77,.3), 0 10px 26px rgba(0,0,0,.5); } }
 .wiz-shell { width: 100%; min-width: 0; }
+
+/* an inline text link that behaves like a button (switches the join tab) */
+.link-btn { padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; cursor: pointer; text-transform: lowercase; }
+.link-btn:hover { text-decoration-thickness: 3px; }
