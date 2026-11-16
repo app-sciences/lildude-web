@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { submit } from '../waitlist.js'
 import { links, paypalAmountUrl, PRICE, CAMPAIGN_URL } from '../config.js'
 import { track, PREORDER_ITEM } from '../analytics.js'
@@ -91,6 +91,11 @@ const tabs = [
 
 export default function Join() {
   const [tab, setTab] = useState('waitlist')
+  useEffect(() => {
+    const h = (e) => setTab(e.detail || 'waitlist')
+    addEventListener('ld-join-tab', h)
+    return () => removeEventListener('ld-join-tab', h)
+  }, [])
   const Active = tabs.find((t) => t.id === tab).Comp
   return (
     <section className="section join" id="join">
