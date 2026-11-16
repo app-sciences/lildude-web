@@ -284,3 +284,15 @@ a.card-wide { display: flex; }
   .plus svg { width: 20px; height: 20px; }
   .campaign-btn { margin: .2rem 0 .7rem; padding: .6rem 1.1rem; }
 }
+
+/* desktop: back / content / next sit in one row, so the buttons hug the content instead of the screen edges */
+@media (min-width: 901px) {
+  .wiz-shell { position: relative; z-index: 2; display: grid; grid-template-columns: 8.4rem minmax(0, 1fr) 8.4rem; align-items: center; gap: 1rem; width: 100%; max-width: 68rem; margin: 0 auto; }
+.wiz-prev { justify-self: end; }
+.wiz-next { justify-self: start; }
+  .wiz-center { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+  .wiz-center .wiz-viewport { width: 100%; }
+  .wiz-slide { padding: 0 .5rem; }
+  .wiz-prev, .wiz-next { position: relative; top: auto; left: auto; right: auto; transform: none; flex: none; }
+  .wiz-dots { position: static; transform: none; }
+}

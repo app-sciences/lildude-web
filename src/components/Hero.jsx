@@ -14,7 +14,7 @@ const STEPS = [
   { id: 'hihat', label: 'hi-hat', title: 'the magic hi-hat', note: 'click the heel and the lower hat drops -- use top hat as crash or ride.',
     src: media.hihatVideo, poster: media.hihatPoster, ratio: '600 / 842' },
 ]
-const NEXT_LABEL = ['unpack', 'tuning', 'hi-hat', 'back to start']
+const NEXT_LABEL = ['unpack', 'tuning', 'hi-hat', 'start']
 
 export default function Hero() {
   const videoRef = useRef(null)
@@ -88,62 +88,66 @@ export default function Hero() {
 
       <span className="badge badge-hero">ai-enhanced preview</span>
 
-      <div className="wiz-viewport" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-        <div className="wiz-track" style={{ transform: `translateX(-${step * 100}%)` }}>
-          {STEPS.map((s, i) => (
-            <section key={s.id} className="wiz-slide" aria-hidden={step !== i} inert={step !== i ? '' : undefined}
-              aria-label={i === 0 ? 'lildude' : s.title}>
-              {i === 0 ? (
-                <div className="hero-copy">
-                  <h1><img src="/lildude-white.svg" alt="lildude" className="logo" /></h1>
-                  <p className="tagline">portable, hushed kit in a tuned bass cajon</p>
-                  <p className="tagline2">from sheds to cafés to stadiums <span className="aside">(stadiums not included)</span></p>
-                  <span className="plus" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round"><path d="M12 4v16M4 12h16" /></svg></span>
-                  <p className="impact">
-                    <span className="sr-only">plus </span>
-                    <svg className="impact-heart" width="1.1em" height="1.1em" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z" /></svg>
-                    clean water and addiction education for <span className="hl">indigenous</span> communities
-                  </p>
-                  <a className="campaign-btn" href="#join" onClick={() => { window.dispatchEvent(new CustomEvent('ld-join-tab', { detail: 'waitlist' })); track('cta_click', { cta: 'hero_campaign' }) }}>
-                    <span>crowdfunding campaign close to launch. get on the list to get coupons and goodies.</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-                  </a>
-                  <div className="cta-row">
-                    <a className="btn btn-light" href="#join" onClick={() => track('cta_click', { cta: 'hero_waitlist' })}>join the waiting list</a>
-                    <button className="btn btn-ghost-light" onClick={() => go(1, 'cta')}>assemble</button>
-                  </div>
-                </div>
-              ) : (
-                <div className="wiz-panel">
-                  <div className="wiz-text">
-                    <p className="wiz-kicker">{i} / {STEPS.length - 1}</p>
-                    <h2>{s.title}</h2>
-                    <p>{s.note}</p>
-                  </div>
-                  <div className="wiz-media">
-                    {step === i && s.src && (
-                      <video key={s.id} className={`wiz-video-${s.id}`} src={s.src} poster={s.poster} autoPlay loop muted playsInline controls
-                        style={{ aspectRatio: s.ratio }} />
-                    )}
-                  </div>
-                </div>
-              )}
-            </section>
-          ))}
-        </div>
-      </div>
+      <div className="wiz-shell">
+        <button className="wiz-prev" onClick={() => go(step - 1, 'prev')} aria-label="previous step"><SkipIcon flip /></button>
+        <div className="wiz-center">
+          <div className="wiz-viewport" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+            <div className="wiz-track" style={{ transform: `translateX(-${step * 100}%)` }}>
+              {STEPS.map((s, i) => (
+                <section key={s.id} className="wiz-slide" aria-hidden={step !== i} inert={step !== i ? '' : undefined}
+                  aria-label={i === 0 ? 'lildude' : s.title}>
+                  {i === 0 ? (
+                    <div className="hero-copy">
+                      <h1><img src="/lildude-white.svg" alt="lildude" className="logo" /></h1>
+                      <p className="tagline">portable, hushed kit in a tuned bass cajon</p>
+                      <p className="tagline2">from sheds to cafés to stadiums <span className="aside">(stadiums not included)</span></p>
+                      <span className="plus" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round"><path d="M12 4v16M4 12h16" /></svg></span>
+                      <p className="impact">
+                        <span className="sr-only">plus </span>
+                        <svg className="impact-heart" width="1.1em" height="1.1em" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z" /></svg>
+                        clean water and addiction education for <span className="hl">indigenous</span> communities
+                      </p>
+                      <a className="campaign-btn" href="#join" onClick={() => { window.dispatchEvent(new CustomEvent('ld-join-tab', { detail: 'waitlist' })); track('cta_click', { cta: 'hero_campaign' }) }}>
+                        <span>crowdfunding campaign close to launch. get on the list to get coupons and goodies.</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      </a>
+                      <div className="cta-row">
+                        <a className="btn btn-light" href="#join" onClick={() => track('cta_click', { cta: 'hero_waitlist' })}>join the waiting list</a>
+                        <button className="btn btn-ghost-light" onClick={() => go(1, 'cta')}>assemble</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="wiz-panel">
+                      <div className="wiz-text">
+                        <p className="wiz-kicker">{i} / {STEPS.length - 1}</p>
+                        <h2>{s.title}</h2>
+                        <p>{s.note}</p>
+                      </div>
+                      <div className="wiz-media">
+                        {step === i && s.src && (
+                          <video key={s.id} className={`wiz-video-${s.id}`} src={s.src} poster={s.poster} autoPlay loop muted playsInline controls
+                            style={{ aspectRatio: s.ratio }} />
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </section>
+              ))}
+            </div>
+          </div>
 
-      <button className="wiz-prev" onClick={() => go(step - 1, 'prev')} aria-label="previous step"><SkipIcon flip /></button>
-      <button className={`wiz-next ${touched ? '' : 'is-pulsing'}`} onClick={() => go(step + 1, 'next')}
-        aria-label={`next: ${NEXT_LABEL[step]}`}>
-        <span className="wiz-next-label">{NEXT_LABEL[step]}</span>
-        <SkipIcon />
-      </button>
-      <div className="wiz-dots" role="group" aria-label="hero steps">
-        {STEPS.map((s, i) => (
-          <button key={s.id} className={i === step ? 'on' : ''} onClick={() => go(i, 'dot')}
-            aria-label={`go to ${s.label}`} aria-current={i === step ? 'step' : undefined} />
-        ))}
+          <div className="wiz-dots" role="group" aria-label="hero steps">
+            {STEPS.map((s, i) => (
+              <button key={s.id} className={i === step ? 'on' : ''} onClick={() => go(i, 'dot')}
+                aria-label={`go to ${s.label}`} aria-current={i === step ? 'step' : undefined} />
+            ))}
+          </div>
+        </div>
+        <button className={`wiz-next ${touched ? '' : 'is-pulsing'}`} onClick={() => go(step + 1, 'next')}
+          aria-label={step === STEPS.length - 1 ? 'next: back to the start' : `next: ${NEXT_LABEL[step]}`}>
+          <span className="wiz-next-label">{NEXT_LABEL[step]}</span>
+          <SkipIcon />
+        </button>
       </div>
     </header>
   )
