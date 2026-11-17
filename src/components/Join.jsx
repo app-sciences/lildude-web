@@ -72,18 +72,21 @@ function Donate() {
   return (
     <div className="form">
       <p>chip in so a kid or a school can have a lildude of their own. every drum counts.</p>
-      <div className="amounts">
-        {amounts.map((a) => (
-          <a key={a} className={`btn btn-ghost ${links.donate ? '' : 'disabled'}`}
-            href={paypalAmountUrl(a) || links.donate || undefined}
-            onClick={() => track('begin_donation', { currency: 'USD', value: a })}
-            target="_blank" rel="noopener noreferrer">${a}</a>
-        ))}
-      </div>
+      {/* preset amounts only work with a PayPal.me link; a hosted Donate button asks for the amount itself */}
+      {links.paypalMe && (
+        <div className="amounts">
+          {amounts.map((a) => (
+            <a key={a} className="btn btn-ghost"
+              href={paypalAmountUrl(a)}
+              onClick={() => track('begin_donation', { currency: 'USD', value: a })}
+              target="_blank" rel="noopener noreferrer">${a}</a>
+          ))}
+        </div>
+      )}
       <a className={`btn btn-primary ${links.donate ? '' : 'disabled'}`}
         href={links.donate || undefined}
         onClick={() => track('begin_donation', { currency: 'USD', value: 'any' })} target="_blank" rel="noopener noreferrer">
-        {links.donate ? 'Donate any amount' : 'Donations opening soon'}
+        {links.donate ? (links.paypalMe ? 'Donate any amount' : 'Donate with PayPal') : 'Donations opening soon'}
       </a>
     </div>
   )
