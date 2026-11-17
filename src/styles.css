@@ -60,7 +60,8 @@ a { color: inherit; }
 .tuning-copy h2 { text-align: left; font-size: clamp(2.6rem, 8vw, 4.6rem); }
 .lead-left { font-size: 1.3rem; font-weight: 600; }
 .tuning-video { flex: 1 1 20rem; min-width: 0; }
-.tuning-video video { width: 100%; display: block; aspect-ratio: 798 / 720; background: #111; border: 4px solid #fff; border-radius: 1.5rem; }
+.tuning-video video { width: 100%; display: block; aspect-ratio: 798 / 720; }
+.frameless, .wiz-media video.frameless { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 
 /* GALLERY */
 .video-frame { position: relative; margin: 2rem auto; width: 100%; aspect-ratio: 16/9; max-width: 56rem; border-radius: 1.5rem; overflow: hidden; border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); background: #000; color: #fff; }

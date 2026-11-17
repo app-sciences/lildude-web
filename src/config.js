@@ -6,6 +6,10 @@ export const media = {
   heroPoster: `${base}/hero-poster.jpg`,
   tuningVideo: `${base}/tuning.mp4`,
   tuningPoster: `${base}/tuning-poster.jpg`,
+  // frameless version: cajon cut out onto transparency (webm alpha), black-backed mp4 for Safari etc.
+  tuningAlpha: `${base}/tuning-alpha.webm`,
+  tuningBlack: `${base}/tuning-black.mp4`,
+  tuningCutout: `${base}/tuning-poster.webp`,
   prototypeVideo: `${base}/prototype.mp4`,
   prototypePoster: `${base}/prototype-poster.jpg`,
   hihatVideo: `${base}/hihat.mp4`,

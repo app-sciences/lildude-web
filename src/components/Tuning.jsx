@@ -16,14 +16,19 @@ export default function Tuning() {
         </div>
         <div className="tuning-video">
           <video
-            src={media.tuningVideo}
-            poster={media.tuningPoster}
-            controls
+            className="frameless"
+            poster={media.tuningCutout}
+            autoPlay
+            loop
+            muted
             playsInline
-            preload="none"
+            preload="auto"
+            aria-label="the tuned cajon"
             onPlay={() => track('tuning_video_play')}
-            onEnded={() => track('tuning_video_complete')}
-          />
+          >
+            <source src={media.tuningAlpha} type='video/webm; codecs="vp9"' />
+            <source src={media.tuningBlack} type="video/mp4" />
+          </video>
         </div>
       </div>
     </section>
