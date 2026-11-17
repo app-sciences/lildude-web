@@ -7,6 +7,7 @@ export const media = {
   tuningVideo: `${base}/tuning.mp4`,
   tuningPoster: `${base}/tuning-poster.jpg`,
   // frameless version: cajon cut out onto transparency (webm alpha), black-backed mp4 for Safari etc.
+  hihatAlpha: `${base}/hihat-alpha.webm`, // luminance-keyed (black -> transparent) for the hero wizard
   tuningAlpha: `${base}/tuning-alpha.webm`,
   tuningBlack: `${base}/tuning-black.mp4`,
   tuningCutout: `${base}/tuning-poster.webp`,

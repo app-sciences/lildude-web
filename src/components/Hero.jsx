@@ -11,8 +11,8 @@ const STEPS = [
     src: media.setupVideo, poster: media.setupStart, ratio: '720 / 892' },
   { id: 'tuning', label: 'tuning', title: 'tuned to 55 hz', note: 'acoustic resonator turns the cajon into a punchy bass drum that cuts through.',
     src: media.tuningVideo, poster: media.tuningPoster, ratio: '798 / 720', frameless: true },
-  { id: 'hihat', label: 'hi-hat', title: 'the magic hi-hat', note: 'click the heel and the lower hat drops -- use top hat as crash or ride.',
-    src: media.hihatVideo, poster: media.hihatPoster, ratio: '600 / 842' },
+  { id: 'hihat', label: 'hi-hat', title: 'the magic hi\u2060-\u2060hat', note: 'click the heel and the lower hat drops -- use top hat as crash or ride.',
+    src: media.hihatVideo, poster: media.hihatPoster, ratio: '600 / 842', alpha: media.hihatAlpha },
 ]
 const NEXT_LABEL = ['unpack', 'tuning', 'hi-hat', 'start']
 
@@ -131,8 +131,11 @@ export default function Hero() {
                           </video>
                         )}
                         {step === i && s.src && !s.frameless && (
-                          <video key={s.id} className={`wiz-video-${s.id}`} src={s.src} poster={s.poster} autoPlay loop muted playsInline controls
-                            style={{ aspectRatio: s.ratio }} />
+                          <video key={s.id} className={`wiz-video-${s.id} ${s.alpha ? 'blend-screen' : ''}`} poster={s.alpha ? undefined : s.poster} autoPlay loop muted playsInline controls={!s.alpha}
+                            style={{ aspectRatio: s.ratio }}>
+                            {s.alpha && <source src={s.alpha} type='video/webm; codecs="vp9"' />}
+                            <source src={s.src} type="video/mp4" />
+                          </video>
                         )}
                       </div>
                     </div>
