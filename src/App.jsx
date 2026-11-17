@@ -58,7 +58,10 @@ export default function App() {
       </main>
       <footer className="footer">
         <img src="/lildude-black.svg" alt="lildude" className="footer-logo" />
-        <p>made with love, pocket &amp; recycled wood · © {new Date().getFullYear()} lildude</p>
+        <p>
+          made with love, pocket &amp; recycled wood · an <a className="footer-link" href="https://nbino.studio" target="_blank" rel="noopener noreferrer">nbino</a> production · © {new Date().getFullYear()}{' '}
+          <a className="footer-link" href="https://nbino.studio" target="_blank" rel="noopener noreferrer">nbino</a>
+        </p>
       </footer>
       <Consent />
     </>
