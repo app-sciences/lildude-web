@@ -71,7 +71,7 @@ export default function Hero() {
     <header className={`hero ${step > 0 ? 'is-step' : ''}`} id="top" ref={headerRef}>
       <div className="hero-bg halftone" aria-hidden="true" />
       <video ref={videoRef} className="hero-video" src={media.heroVideo} poster={media.heroPoster}
-        autoPlay loop muted playsInline preload="metadata" onError={(e) => (e.currentTarget.style.display = 'none')} />
+        autoPlay muted playsInline preload="metadata" onError={(e) => (e.currentTarget.style.display = 'none')} />
       <div className="hero-shade" />
       <div className="hero-dim" aria-hidden="true" />
 
