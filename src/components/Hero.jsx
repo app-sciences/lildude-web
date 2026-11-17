@@ -7,7 +7,7 @@ import { SkipIcon } from './SkipIcon.jsx'
 // unpack -> tuning -> hi-hat and then returns to the front. Everything happens inside the first screen.
 const STEPS = [
   { id: 'front', label: 'start' },
-  { id: 'unpack', label: 'unpack', title: 'unpack and assemble', note: 'all in a cajon. watch it come together.',
+  { id: 'unpack', label: 'unpack', title: 'unpack', note: 'drum set in a cajon.',
     src: media.setupVideo, poster: media.setupStart, ratio: '720 / 892' },
   { id: 'tuning', label: 'tuning', title: 'tuned to 55 hz', note: 'acoustic resonator turns the cajon into a punchy bass drum that cuts through.',
     src: media.tuningVideo, poster: media.tuningPoster, ratio: '798 / 720' },
@@ -105,7 +105,7 @@ export default function Hero() {
                       <p className="impact">
                         <span className="sr-only">plus </span>
                         <svg className="impact-heart" width="1.1em" height="1.1em" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z" /></svg>
-                        clean water and addiction education for <span className="hl">indigenous</span> communities
+                        clean water and addiction education for <span className="hl">indigenous</span> communities in Guatemala
                       </p>
                       <a className="campaign-btn" href="#join" onClick={() => { window.dispatchEvent(new CustomEvent('ld-join-tab', { detail: 'waitlist' })); track('cta_click', { cta: 'hero_campaign' }) }}>
                         <span>crowdfunding campaign close to launch. get on the list to get coupons and goodies.</span>

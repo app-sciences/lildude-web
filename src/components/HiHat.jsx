@@ -16,7 +16,7 @@ export default function HiHat() {
           badge="ai-enhanced preview" fallback="hi-hat video coming soon" />
         <div className="hihat-copy">
           <p>regular hi-hat.</p>
-          <p><strong>heel down:</strong> top hat rings free as a ride or a crash.</p>
+          <p><strong>heel click:</strong> top hat rings free as a ride or a crash.</p>
           <p className="hihat-note">what else do you need, a gong?</p>
         </div>
       </div>
