@@ -314,3 +314,8 @@ a.card-wide { display: flex; }
 .yt-play-icon { display: grid; place-items: center; width: 5rem; height: 5rem; border-radius: 50%; background: #fff; }
 .yt-play-label { font-family: var(--display); font-size: 1.3rem; padding: 0 1rem; }
 .yt-play:hover .yt-play-icon { transform: scale(1.06); }
+
+/* the "+" is just a plus sign: no circle, nothing that looks like a button */
+.plus { width: auto; height: auto; margin: .35rem 0; border: 0; border-radius: 0; background: none; box-shadow: none; filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)); }
+.plus svg { width: 38px; height: 38px; }
+@media (max-width: 520px) { .plus { margin: .2rem 0; } .plus svg { width: 30px; height: 30px; } }
