@@ -71,7 +71,7 @@ export default function Hero() {
     <header className={`hero ${step > 0 ? 'is-step' : ''}`} id="top" ref={headerRef}>
       <div className="hero-bg halftone" aria-hidden="true" />
       <video ref={videoRef} className="hero-video" src={media.heroVideo} poster={media.heroPoster}
-        autoPlay loop muted playsInline preload="metadata" onError={(e) => (e.currentTarget.style.display = 'none')} />
+        autoPlay muted playsInline preload="metadata" onError={(e) => (e.currentTarget.style.display = 'none')} />
       <div className="hero-shade" />
       <div className="hero-dim" aria-hidden="true" />
 
@@ -101,7 +101,7 @@ export default function Hero() {
                       <h1><img src="/lildude-white.svg" alt="lildude" className="logo" /></h1>
                       <p className="tagline">portable, hushed kit in a tuned bass cajon</p>
                       <p className="tagline2">from sheds to cafés to stadiums <span className="aside">(stadiums not included)</span></p>
-                      <span className="plus" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round"><path d="M12 4v16M4 12h16" /></svg></span>
+                      <span className="plus" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"><path d="M12 3v18M3 12h18" /></svg></span>
                       <p className="impact">
                         <span className="sr-only">plus </span>
                         <svg className="impact-heart" width="1.1em" height="1.1em" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z" /></svg>
@@ -113,8 +113,7 @@ export default function Hero() {
                       </a>
                       <div className="cta-row">
                         <a className="btn btn-light" href="#join" onClick={() => track('cta_click', { cta: 'hero_waitlist' })}>join the waiting list</a>
-                        <button className="btn btn-ghost-light" onClick={() => go(1, 'cta')}>assemble</button>
-                      </div>
+                          </div>
                     </div>
                   ) : (
                     <div className="wiz-panel">
