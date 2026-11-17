@@ -4,9 +4,8 @@ import { track } from '../analytics.js'
 const ITEMS = [
   { id: 'unbox', label: 'unpack' },
   { id: 'vibes', label: 'why lildude' },
-  { id: 'tuning', label: 'bass cajon' },
   { id: 'hihat', label: 'magic hi-hat', isNew: true },
-  { id: 'tuning', label: '55 hz', dup: true },
+  { id: 'tuning', label: '55 hz' },
   { id: 'story', label: 'story' },
   { id: 'gallery', label: 'photos' },
 ]
