@@ -9,7 +9,7 @@ const items = [
   { href: '#tuning', path: 'M3 18a9 9 0 0 1 18 0M7 18a5 5 0 0 1 10 0M11 18a1 1 0 0 1 2 0',
     title: 'tuned bass cajon', text: 'cajon geometry/materials + an acoustic resonator tunes the cajon to 55 hz, a common bass drum frequency.' },
   { href: '#hihat', path: 'M12 3v17M5 8h14M7 13h10M8 20h8', isNew: true,
-    title: 'magic hi-hat', text: 'drop the lower hat and the upper hat becomes a crash or a ride, with a click of the heel.' },
+    title: 'magic hi-hat', text: 'drop the lower hat -- upper hat becomes a crash or a ride, with a click of the heel.' },
 ]
 
 function More() {
@@ -41,7 +41,7 @@ export default function Vibes() {
         </svg>
         <div>
           <h3>drums for every kid</h3>
-          <p>a fraction of the price of a kit. efficiently, responsibly produced in guatemala. a portion of profits supports access to clean water and addiction education for <span className="hl">indigenous</span> communities.</p>
+          <p>a fraction of the price of a kit. efficiently, responsibly produced in guatemala. a portion of profits supports access to clean water and addiction education for <span className="hl">indigenous</span> communities in Guatemala.</p>
         </div>
         <More />
       </a>

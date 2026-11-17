@@ -11,7 +11,7 @@ export default function Tuning() {
             that’s the low thump of a bass drum. acoustic tube turns cajon into a resonator - the air inside rings right where a kick drum lives.
           </p>
           <p>
-            same trick as a ported speaker: hit it, and the box answers back with punchy real low end that cuts through.
+            same trick as a ported speaker: punchy, fast, real low end that cuts through.
           </p>
         </div>
         <div className="tuning-video">
